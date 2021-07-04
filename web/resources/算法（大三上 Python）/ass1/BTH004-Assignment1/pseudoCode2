@@ -1,0 +1,46 @@
+def neighbourhood(knapsacks,items):
+    # search neighbourhoods of current solution
+    #the definition of neighbour is: move one item's from a knapsack (or not included) to another knapsack 
+    Fx = []
+    for i in range(len(items)):
+        for j in range(len(knapsacks)):
+            if items[i][2] != j: 
+                # search the neighbours but not include itself
+                # move items[[Xn[i]][1]] to knapsack j 
+                # calculate value for current solution.
+                # if the total weight out of the capacity, then give up an item with the lowest value per unit.
+                #then add this solution to the Fx
+    return Fx
+
+def bestNeighbourhood(Fx,knapsacks,items): 
+    # find the best neighbour with the largest value in all neighbours
+
+    
+def neighbourhoodSearchForMultipleKnapsack(knapsacks,items):
+    
+    currentBestValue = 0 
+    # record the total value with current solution
+    for item in items:
+        if item[2] != -1:
+            currentBestValue += item[0]
+            
+    bestNeighbourhoodValue = currentBestValue + 1 # record the best values of all neighbourhoods
+    firstR = True
+    count = 0
+    bestSolution = []
+    for item in items:
+        bestSolution.append(item[:])
+        
+    while currentBestValue < bestNeighbourhoodValue: 
+        currentBestValue = bestNeighbourhoodValue
+        if firstR:
+            firstR = False
+            currentBestValue -= 1
+        items = []
+        for item in bestSolution:
+            items.append(item[:])
+        nbhs = neighbourhood(knapsacks, items)
+        bestSolution,bestNeighbourhoodValue = bestNeighbourhood(nbhs, knapsacks, items)
+        count+=1
+    
+    return items,currentBestValue

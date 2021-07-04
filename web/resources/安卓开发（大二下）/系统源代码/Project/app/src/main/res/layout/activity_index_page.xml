@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tipbg"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="共有0条便签，点击查看->"
+            android:textSize="26sp" />
+
+        <Button
+            android:id="@+id/btnCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="查看便签"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtIncome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/txtOutcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="暂无收支记录"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/txtTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnCheckBill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="查看账单"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnNew"
+        android:layout_width="261dp"
+        android:layout_height="wrap_content"
+        android:text="➕\n新建便签"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnNewBill"
+        android:layout_width="261dp"
+        android:layout_height="wrap_content"
+        android:text="➕\n新建账单"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnExit"
+        android:layout_width="261dp"
+        android:layout_height="wrap_content"
+        android:text="退出便签"
+        android:textSize="24sp" />
+</LinearLayout>

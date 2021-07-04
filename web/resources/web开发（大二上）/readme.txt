@@ -1,0 +1,1 @@
+使用Java和MySQL开发的商场管理web系统，需要eclipse环境库支持

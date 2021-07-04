@@ -1,0 +1,37 @@
+def tabuSearch(knapsacks,items,iterTimes,tabuLength):
+    
+    currentBestValue = 0 
+    # record the total value with current solution
+    bestNeighbourhoodValue = 0 
+    # record the best values of all neighbourhoods
+    for item in items:
+        if item[2] != -1:
+            currentBestValue += item[0]
+    bestNeighbourhoodValue = currentBestValue
+    bestSolution = []
+    for item in items:
+        bestSolution.append(item[:])
+    tabuList = []
+    for i in range(iterTimes):
+        solution = []
+        for item in bestSolution: 
+            #deep copy
+            solution.append(item[:])
+        if i < tabuLength:
+            tabuList.append(solution)
+        else:
+            tabuList[i % tabuLength] = solution
+        nbhs = neighbourhood(knapsacks, bestSolution)
+        for tabuSolution in tabuList: 
+            # remove solutions in tabu list 
+            for nbh in nbhs:
+                if tabuSolution in nbh:
+                    nbhs.remove(nbh)
+        bestSolution,bestNeighbourhoodValue = bestNeighbourhood(nbhs, knapsacks, items)
+        if currentBestValue < bestNeighbourhoodValue:
+            items = []
+            for item in bestSolution:
+                items.append(item[:])
+            currentBestValue = bestNeighbourhoodValue
+        
+    return items,currentBestValue
