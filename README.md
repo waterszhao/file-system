@@ -33,3 +33,8 @@ git clone https://github.com/waterszhao/file-system.git
 
 - 服务器文件访问系统 FileController 和 file web资源
 
+## 7.14
+
+添加文件下载功能
+
+修复中文乱码
